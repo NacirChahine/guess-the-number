@@ -8,7 +8,7 @@ void main() {
 }
 
 class GuessTheNumberGame extends StatefulWidget {
-  const GuessTheNumberGame({super.key});
+  const GuessTheNumberGame({Key? key}) : super(key: key);
 
   @override
   _GuessTheNumberGameState createState() => _GuessTheNumberGameState();
@@ -32,6 +32,7 @@ class _GuessTheNumberGameState extends State<GuessTheNumberGame> {
     _guess = null;
     _attempts = 0;
     _message = 'Can you guess the number between 1 and 100!?';
+    setState(() {}); // Update the UI to show the new message.
   }
 
   void _makeGuess() {
@@ -72,6 +73,7 @@ class _GuessTheNumberGameState extends State<GuessTheNumberGame> {
             children: <Widget>[
               AnimatedDefaultTextStyle(
                 duration: const Duration(milliseconds: 500),
+                textAlign: TextAlign.center, // Center-align text
                 style: TextStyle(
                   fontSize: 20,
                   color: _guess == _targetNumber ? Colors.green : Colors.white,
@@ -80,49 +82,54 @@ class _GuessTheNumberGameState extends State<GuessTheNumberGame> {
                 child: Text(_message),
               ),
               const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    width: 100,
-                    child: TextField(
-                      keyboardType: TextInputType.number,
-                      onChanged: (value) {
-                        setState(() {
-                          _guess = int.tryParse(value);
-                        });
-                      },
-                      style: const TextStyle(color: Colors.black), // Input text color
-                      decoration: const InputDecoration(
-                        labelText: 'Your guess:',
-                        labelStyle: TextStyle(color: Colors.white), // Label text color
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white), // Border color
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white), // Border color when focused
+              Form(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SizedBox(
+                      width: 100,
+                      child: TextFormField(
+                        keyboardType: TextInputType.number,
+                        onChanged: (value) {
+                          setState(() {
+                            _guess = int.tryParse(value);
+                          });
+                        },
+                        onFieldSubmitted: (value) {
+                          _makeGuess();
+                        },
+                        style: const TextStyle(color: Colors.black), // Input text color
+                        decoration: const InputDecoration(
+                          labelText: 'Your guess:',
+                          labelStyle: TextStyle(color: Colors.white), // Label text color
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white), // Border color
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white), // Border color when focused
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(width: 10),
-                  ElevatedButton(
-                    onPressed: _makeGuess,
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.deepPurple, // Button background color
+                    const SizedBox(width: 10),
+                    ElevatedButton(
+                      onPressed: _makeGuess,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.deepPurple, // Button background color
+                      ),
+                      child: const Text(
+                        'Guess',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                     ),
-                    child: const Text(
-                      'Guess',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _startNewGame,
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.deepPurple, // Button background color
+                  backgroundColor: Colors.deepPurple, // Button background color
                 ),
                 child: const Text(
                   'New Game',
