@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="guess_the_number"
+        android:label="guess the number by nacir"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
