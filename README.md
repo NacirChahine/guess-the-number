@@ -61,6 +61,6 @@ Celebrate your success with a congratulatory message when you guess the number.
 
 ![image](https://github.com/NacirChahine/guess-the-number/assets/120245923/7d7cdb20-f050-4905-8698-964420a3cec6)
 
-Contributing
+<h2>Contributing</h2>
 Contributions are welcome! If you'd like to improve this project or add new features, please fork the repository and create a pull request. You can also open issues for bug reports or feature requests.
 
