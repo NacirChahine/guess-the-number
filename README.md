@@ -56,7 +56,7 @@ Keep track of your attempts to see how quickly you can guess the number.
 Celebrate your success with a congratulatory message when you guess the number.
 </br>
 <h2>Screenshots</h2>
-</br>
+
 ![image](https://github.com/NacirChahine/guess-the-number/assets/120245923/9f88fd9d-b434-47e3-af46-3e916f66020f)
 
 ![image](https://github.com/NacirChahine/guess-the-number/assets/120245923/7d7cdb20-f050-4905-8698-964420a3cec6)
