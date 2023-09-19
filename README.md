@@ -54,6 +54,7 @@ Try to guess the correct number between 1 and 100.
 The app provides feedback, letting you know if your guess is too high or too low.
 Keep track of your attempts to see how quickly you can guess the number.
 Celebrate your success with a congratulatory message when you guess the number.
+<br>
 Screenshots
 ![image](https://github.com/NacirChahine/guess-the-number/assets/120245923/9f88fd9d-b434-47e3-af46-3e916f66020f)
 
